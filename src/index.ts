@@ -136,8 +136,7 @@ function optimizeImports(txtBuffer: string): string {
 
   // get unique internal imports
   var internalImports = getUnique(
-    result
-      .match(patterns.internalModule)
+    (result.match(patterns.internalModule) || [])
       .map(imp => imp.toString().trim())
   );
 
